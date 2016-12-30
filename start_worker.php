@@ -36,7 +36,7 @@ $ws_worker->onWorkerStart = function($ws_worker)
 $ws_worker->onConnect = function($connection) use ($ws_worker)
 {
     $connection->server = $ws_worker->server;
-    if(isset($server->connectionCallback))
+    if(isset($ws_worker->server->connectionCallback))
     {
         call_user_func($ws_worker->server->connectionCallback);
     }
