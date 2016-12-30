@@ -629,7 +629,7 @@ function(Camera, Item, Character, Player, Timer) {
             }
             this.frameCount++;
         
-            //this.drawText("FPS: " + this.realFPS + " / " + this.maxFPS, 30, 30, false);
+            // this.drawText("FPS: " + this.realFPS + " / " + this.maxFPS, 10, 30, false);
             this.drawText("FPS: " + this.realFPS, 30, 30, false);
         },
     

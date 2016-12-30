@@ -16,6 +16,8 @@ use \Server\Utils;
 use \Server\Player;
 use \Server\WorldServer;
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 // BrowserQuest Server
 $ws_worker = new Worker('Websocket://0.0.0.0:8000');
 $ws_worker->name = 'BrowserQuestWorker';
