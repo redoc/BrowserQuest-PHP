@@ -1,5 +1,5 @@
 {
-    "host": "59.110.46.185",
+    "host": "127.0.0.1",
     "port": 8000,
     "dispatcher": false
 }
