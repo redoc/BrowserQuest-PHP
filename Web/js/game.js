@@ -261,7 +261,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 },
                 HOT_SPOT: {
                     id: 16,
-                    name: "东京热",
+                    name: "开封热",
                     desc: "进入火山地带"
                 },
                 HERO: {
