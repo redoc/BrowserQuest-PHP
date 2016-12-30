@@ -22,7 +22,7 @@ class Properties
                     'burger'=> 10,
                     'firepotion'=> 5
                 ),
-                'hp'=> 500,
+                'hp'=> 50,
                 'armor'=> 1,
                 'weapon'=> 1
             ),
