@@ -1,5 +1,3 @@
-logs
-.buildpath
 .project
-.settings
-.idea
+.buildpath
+.settings/org.eclipse.php.core.prefs
