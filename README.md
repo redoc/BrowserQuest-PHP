@@ -1,6 +1,8 @@
 # Zero Game
 Forked from [walkor/BrowserQuest-PHP](https://github.com/walkor/BrowserQuest-PHP)
 
+![BrowserQuest width workerman](https://github.com/walkor/BrowserQuest-PHP/blob/master/Web/img/screenshot.jpg?raw=true)
+
 ## 安装 － Install
 +   git clone https://github.com/walkor/BrowserQuest-PHP
 +   composer install 
