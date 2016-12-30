@@ -22,7 +22,7 @@ class Properties
                     'burger'=> 10,
                     'firepotion'=> 5
                 ),
-                'hp'=> 25,
+                'hp'=> 50,
                 'armor'=> 1,
                 'weapon'=> 1
             ),
@@ -34,7 +34,7 @@ class Properties
                     'axe'=> 20,
                     'firepotion'=> 5
                 ),
-                'hp'=> 110,
+                'hp'=> 200,
                 'armor'=> 2,
                 'weapon'=> 2
             ),
@@ -46,7 +46,7 @@ class Properties
                     'axe'=> 10,
                     'firepotion'=> 5
                 ),
-                'hp'=> 90,
+                'hp'=> 100,
                 'armor'=> 2,
                 'weapon'=> 1
             ),
@@ -59,7 +59,7 @@ class Properties
                     'morningstar'=> 20,
                     'firepotion'=> 5
                 ),
-                'hp'=> 200,
+                'hp'=> 400,
                 'armor'=> 3,
                 'weapon'=> 2
             ),
@@ -71,7 +71,7 @@ class Properties
                     'redsword'=> 30,
                     'firepotion'=> 5
                 ),
-                'hp'=> 250,
+                'hp'=> 400,
                 'armor'=> 2,
                 'weapon'=> 4
             ),
@@ -81,7 +81,7 @@ class Properties
                     'burger'=> 95,
                     'firepotion'=> 5
                 ),
-                'hp'=> 250,
+                'hp'=> 400,
                 'armor'=> 3,
                 'weapon'=> 3
             ),
@@ -93,7 +93,7 @@ class Properties
                     'leatherarmor'=> 10,
                     'firepotion'=> 5
                 ),
-                'hp'=> 60,
+                'hp'=> 100,
                 'armor'=> 2,
                 'weapon'=> 1
             ),
@@ -105,7 +105,7 @@ class Properties
                     'morningstar'=> 10,
                     'firepotion'=> 5
                 ),
-                'hp'=> 150,
+                'hp'=> 200,
                 'armor'=> 3,
                 'weapon'=> 2
             ),
@@ -117,7 +117,7 @@ class Properties
                     'bluesword'=> 15,
                     'firepotion'=> 5
                 ),
-                'hp'=> 200,
+                'hp'=> 400,
                 'armor'=> 3,
                 'weapon'=> 3
             ),
@@ -129,7 +129,7 @@ class Properties
                     'redsword'=> 10,
                     'firepotion'=> 5
                 ),
-                'hp'=> 200,
+                'hp'=> 300,
                 'armor'=> 3,
                 'weapon'=> 3
             ),
@@ -140,7 +140,7 @@ class Properties
                     'axe'=> 10,
                     'firepotion'=> 5
                 ),
-                'hp'=> 100,
+                'hp'=> 200,
                 'armor'=> 2,
                 'weapon'=> 1
             ),
@@ -151,7 +151,7 @@ class Properties
                     'platearmor'=> 20,
                     'firepotion'=> 5
                 ),
-                'hp'=> 200,
+                'hp'=> 400,
                 'armor'=> 2,
                 'weapon'=> 6
             ),
@@ -160,7 +160,7 @@ class Properties
                 'drops'=> array(
                     'goldensword'=> 100
                 ),
-                'hp'=> 1000,
+                'hp'=> 2000,
                 'armor'=> 6,
                 'weapon'=> 7
             )
