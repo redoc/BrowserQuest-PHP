@@ -424,7 +424,7 @@ function(Camera, Item, Character, Player, Timer, Hpbar) {
                 Hpbar.drawMobName(Hpbar.getMobName(entity.kind),
                     this,
                     (entity.x + 8) * this.scale,
-                    (entity.y - entity.sprite.height / 4) * this.scale);
+                    (entity.y - entity.sprite.height / 4) * this.scale - 5);
                 if(entity.maxHitPoints) {
                     Hpbar.drawHp(entity.maxHitPoints,
                         entity.hitPoints,

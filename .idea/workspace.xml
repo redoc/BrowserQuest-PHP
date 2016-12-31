@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="65601c3b-2a30-4272-8042-c88f497dbdc2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/Messages/Damage.php" afterPath="$PROJECT_DIR$/Server/Messages/Damage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/WorldServer.php" afterPath="$PROJECT_DIR$/Server/WorldServer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/js/cglib/hpbar.js" afterPath="$PROJECT_DIR$/Web/js/cglib/hpbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/js/game.en.js" afterPath="$PROJECT_DIR$/Web/js/game.en.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/js/game.js" afterPath="$PROJECT_DIR$/Web/js/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/js/gameclient.js" afterPath="$PROJECT_DIR$/Web/js/gameclient.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/js/renderer.js" afterPath="$PROJECT_DIR$/Web/js/renderer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/shared/js/gametypes.js" afterPath="$PROJECT_DIR$/Web/shared/js/gametypes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/start_web.php" afterPath="$PROJECT_DIR$/start_web.php" />
     </list>
     <ignored path="zero.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,18 +27,8 @@
       <file leaf-file-name="renderer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Web/js/renderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="432" column="76" selection-start-line="432" selection-start-column="76" selection-end-line="432" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hpbar.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Web/js/cglib/hpbar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5">
-              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+            <state relative-caret-position="190">
+              <caret line="426" column="74" selection-start-line="426" selection-start-column="74" selection-end-line="426" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -55,7 +37,7 @@
       <file leaf-file-name="audio.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/js/audio.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
+            <state relative-caret-position="1368">
               <caret line="72" column="62" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
               <folding />
             </state>
@@ -65,7 +47,7 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/js/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="19">
               <caret line="1332" column="39" selection-start-line="1332" selection-start-column="39" selection-end-line="1332" selection-end-column="39" />
               <folding />
             </state>
@@ -75,7 +57,7 @@
       <file leaf-file-name="map.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/js/map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
+            <state relative-caret-position="4560">
               <caret line="240" column="12" selection-start-line="240" selection-start-column="12" selection-end-line="240" selection-end-column="12" />
               <folding />
             </state>
@@ -85,7 +67,7 @@
       <file leaf-file-name="Mob.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/Mob.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="3857">
               <caret line="214" column="67" selection-start-line="214" selection-start-column="30" selection-end-line="214" selection-end-column="67" />
               <folding />
             </state>
@@ -95,7 +77,7 @@
       <file leaf-file-name="WorldServer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/WorldServer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
+            <state relative-caret-position="7315">
               <caret line="397" column="53" selection-start-line="397" selection-start-column="53" selection-end-line="397" selection-end-column="53" />
               <folding>
                 <element signature="e#447#469#0#PHP" expanded="true" />
@@ -117,7 +99,7 @@
       <file leaf-file-name="gameclient.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/js/gameclient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
+            <state relative-caret-position="6118">
               <caret line="322" column="54" selection-start-line="322" selection-start-column="54" selection-end-line="322" selection-end-column="54" />
               <folding />
             </state>
@@ -127,7 +109,7 @@
       <file leaf-file-name="gametypes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/shared/js/gametypes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
+            <state relative-caret-position="4731">
               <caret line="253" column="44" selection-start-line="253" selection-start-column="44" selection-end-line="253" selection-end-column="44" />
               <folding>
                 <element signature="e#5970#6025#0" expanded="false" />
@@ -215,6 +197,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -268,7 +251,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -357,34 +339,35 @@
       <workItem from="1483145038832" duration="14438000" />
       <workItem from="1483176406768" duration="4710000" />
       <workItem from="1483197076133" duration="6179000" />
-      <workItem from="1483212215436" duration="12788000" />
+      <workItem from="1483212215436" duration="12958000" />
+      <workItem from="1483225634182" duration="289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61476000" />
+    <option name="totallyTimeSpent" value="61935000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="416" y="90" width="1258" height="808" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20283806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20617697" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.405" sideWeight="0.5044776" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.004636785" sideWeight="0.49710983" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4049459" sideWeight="0.49552238" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.004636785" sideWeight="0.49710983" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4049459" sideWeight="0.49552238" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -440,7 +423,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -448,7 +430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -456,13 +437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
           <caret line="1684" column="4" selection-start-line="1684" selection-start-column="4" selection-end-line="1684" selection-end-column="4" />
-          <folding>
-            <marker date="1483078701709" expanded="true" signature="113053:113084" ph="..." />
-            <marker date="1483078701709" expanded="true" signature="118071:118081" ph="..." />
-            <marker date="1483078701709" expanded="true" signature="118192:118223" ph="..." />
-            <marker date="1483078701709" expanded="true" signature="313547:313640" ph="..." />
-            <marker date="1483078701709" expanded="true" signature="313673:313766" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -512,7 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="582">
           <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -520,7 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -535,7 +507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -543,7 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="94" selection-start-line="11" selection-start-column="94" selection-end-line="11" selection-end-column="94" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -584,7 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="402" column="45" selection-start-line="402" selection-start-column="45" selection-end-line="402" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -599,7 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,7 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="82" column="27" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -615,7 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -623,7 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -631,7 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -639,7 +603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="17" column="36" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -647,7 +610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="20" column="21" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -655,7 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="29" column="14" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -663,7 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -671,7 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -679,7 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="419" column="36" selection-start-line="419" selection-start-column="36" selection-end-line="419" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -687,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -695,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4140">
           <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -703,7 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1771">
           <caret line="186" column="33" selection-start-line="186" selection-start-column="33" selection-end-line="186" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -711,7 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
           <caret line="38" column="2" selection-start-line="38" selection-start-column="2" selection-end-line="38" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -727,13 +681,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
           <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/js/map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
+        <state relative-caret-position="4560">
           <caret line="240" column="12" selection-start-line="240" selection-start-column="12" selection-end-line="240" selection-end-column="12" />
           <folding />
         </state>
@@ -741,7 +694,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/shared/js/gametypes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="4731">
           <caret line="253" column="44" selection-start-line="253" selection-start-column="44" selection-end-line="253" selection-end-column="44" />
           <folding>
             <element signature="e#5970#6025#0" expanded="false" />
@@ -752,16 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/js/gameclient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
+        <state relative-caret-position="6118">
           <caret line="322" column="54" selection-start-line="322" selection-start-column="54" selection-end-line="322" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/js/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="1332" column="39" selection-start-line="1332" selection-start-column="39" selection-end-line="1332" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -776,7 +721,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/WorldServer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
+        <state relative-caret-position="7315">
           <caret line="397" column="53" selection-start-line="397" selection-start-column="53" selection-end-line="397" selection-end-column="53" />
           <folding>
             <element signature="e#447#469#0#PHP" expanded="true" />
@@ -786,7 +731,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/Mob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
+        <state relative-caret-position="3857">
           <caret line="214" column="67" selection-start-line="214" selection-start-column="30" selection-end-line="214" selection-end-column="67" />
           <folding />
         </state>
@@ -794,7 +739,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/js/cglib/hpbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
+        <state relative-caret-position="722">
           <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
           <folding />
         </state>
@@ -802,16 +747,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/js/audio.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
+        <state relative-caret-position="1368">
           <caret line="72" column="62" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/js/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1332" column="39" selection-start-line="1332" selection-start-column="39" selection-end-line="1332" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/js/renderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="432" column="76" selection-start-line="432" selection-start-column="76" selection-end-line="432" selection-end-column="76" />
+        <state relative-caret-position="190">
+          <caret line="426" column="74" selection-start-line="426" selection-start-column="74" selection-end-line="426" selection-end-column="74" />
           <folding />
         </state>
       </provider>
