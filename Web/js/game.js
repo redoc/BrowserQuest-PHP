@@ -1,11 +1,11 @@
 
 define(['infomanager', 'bubble', 'renderer', 'map', 'animation', 'sprite', 'tile',
         'warrior', 'gameclient', 'audio', 'updater', 'transition', 'pathfinder',
-        'item', 'mob', 'npc', 'player', 'character', 'chest', 'mobs', 'exceptions', 'config', '../../shared/js/gametypes'],
+        'item', 'mob', 'npc', 'player', 'character', 'chest', 'mobs', 'exceptions', 'config', '../shared/js/gametypes'],
 function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedTile,
          Warrior, GameClient, AudioManager, Updater, Transition, Pathfinder,
-         Item, Mob, Npc, Player, Character, Chest, Mobs, Exceptions, config) {
-    
+         Item, Mob, Npc, Player, Character, Chest, Mobs, Exceptions, config, GameTypes) {
+
     var Game = Class.extend({
         init: function(app) {
             this.app = app;
@@ -1328,10 +1328,12 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     }
                 });
             
-                self.client.onPlayerDamageMob(function(mobId, points) {
+                self.client.onPlayerDamageMob(function(mobId, points, maxhp, hp) {
                     var mob = self.getEntityById(mobId);
                     if(mob && points) {
                         self.infoManager.addDamageInfo(points, mob.x, mob.y - 15, "inflicted");
+                        mob.hitPoints = hp;
+                        mob.maxHitPoints = maxhp;
                     }
                 });
             

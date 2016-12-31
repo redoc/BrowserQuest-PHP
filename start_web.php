@@ -21,7 +21,7 @@ $web->count = 2;
 
 $web->name = 'BrowserQuestWeb';
 
-$web->addRoot('www.your_domain.com', __DIR__.'/Web');
+$web->addRoot('127.0.0.1', __DIR__.'/Web');
 
 // 如果不是在根目录启动，则运行runAll方法
 if(!defined('GLOBAL_START'))

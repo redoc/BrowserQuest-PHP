@@ -1,6 +1,6 @@
 
-define(['camera', 'item', 'character', 'player', 'timer', './cglib/hpbar'],
-function(Camera, Item, Character, Player, Timer, HPbar) {
+define(['camera', 'item', 'character', 'player', 'timer', 'cglib/hpbar'],
+function(Camera, Item, Character, Player, Timer, Hpbar) {
 
     var Renderer = Class.extend({
         init: function(game, canvas, background, foreground) {
@@ -420,8 +420,18 @@ function(Camera, Item, Character, Player, Timer, HPbar) {
                 }
             }
             // 绘制血条代码块
-            if(HPbar.isMob(entity.gridX, entity.gridY)){
-                log("hh");
+            if(Hpbar.isMob(entity.kind) && !entity.isDead && !(this.mobile || this.tablet)){
+                Hpbar.drawMobName(Hpbar.getMobName(entity.kind),
+                    this,
+                    (entity.x + 8) * this.scale,
+                    (entity.y - entity.sprite.height / 4) * this.scale);
+                if(entity.maxHitPoints) {
+                    Hpbar.drawHp(entity.maxHitPoints,
+                        entity.hitPoints,
+                        this,
+                        (entity.x + 8) * this.scale,
+                        (entity.y - entity.sprite.height / 8) * this.scale);
+                }
             }
         },
 

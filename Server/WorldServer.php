@@ -327,7 +327,7 @@ class WorldServer
         }
     }
     
-    public function pushToPlayer($player, $message) 
+    public function pushToPlayer($player, $message) //推送消息给单个用户
     {
         if($player && isset($this->outgoingQueues[$player->id])) 
         {
@@ -376,7 +376,7 @@ class WorldServer
         $player->recentlyLeftGroups = array();
     }
     
-    public function pushBroadcast($message, $ignoredPlayer = null) 
+    public function pushBroadcast($message, $ignoredPlayer = null) //推送广播消息
     {
         foreach($this->outgoingQueues as $id=>$item)
         {
@@ -394,6 +394,7 @@ class WorldServer
             if($this->outgoingQueues[$id]) {
                 $connection = $this->server->connections[$id];
                 $connection->send(json_encode($this->outgoingQueues[$id]));
+//                echo json_encode($this->outgoingQueues[$id]);
                 $this->outgoingQueues[$id] = array();
             }
         }
@@ -530,7 +531,7 @@ class WorldServer
         }
     }
     
-    public function forEachEntity($callback) 
+    public function forEachEntity($callback)
     {
         foreach($this->entities as $item)
         {

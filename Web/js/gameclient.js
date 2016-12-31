@@ -316,10 +316,11 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
     
         receiveDamage: function(data) {
             var id = data[1],
-                dmg = data[2];
-        
+                dmg = data[2],
+                maxhp = data[3]; //新增怪物剩余血量显示
+                hp = data[4];
             if(this.dmg_callback) {
-                this.dmg_callback(id, dmg);
+                this.dmg_callback(id, dmg, maxhp, hp);
             }
         },
     

@@ -13,6 +13,8 @@
  */
 namespace Server\Messages;
 
+use Server\Properties;
+
 class Damage
 {
     public $entity = 0;
@@ -25,9 +27,12 @@ class Damage
     
     public function serialize()
     {
+//        echo '血量' . $this->entity->hitPoints;
         return array(TYPES_MESSAGES_DAMAGE, 
                 $this->entity->id,
-                $this->points, 
+                $this->points,
+                Properties::getHitPoints($this->entity->kind),
+                $this->entity->hitPoints
         );
     }
 }
