@@ -97,7 +97,7 @@ define(['item'], function(Item) {
         Burger: Item.extend({
             init: function(id) {
                 this._super(id, Types.Entities.BURGER, "object");
-                this.lootMessage = "你居然吃了一个老鼠汉堡";
+                this.lootMessage = "你吃了一个巨无霸汉堡";
             },
         }),
 
