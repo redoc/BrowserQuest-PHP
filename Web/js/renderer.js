@@ -1,6 +1,6 @@
 
-define(['camera', 'item', 'character', 'player', 'timer'], 
-function(Camera, Item, Character, Player, Timer) {
+define(['camera', 'item', 'character', 'player', 'timer', './cglib/hpbar'],
+function(Camera, Item, Character, Player, Timer, HPbar) {
 
     var Renderer = Class.extend({
         init: function(game, canvas, background, foreground) {
@@ -418,6 +418,10 @@ function(Camera, Item, Character, Player, Timer) {
                 if(entity.isFading) {
                     this.context.restore();
                 }
+            }
+            // 绘制血条代码块
+            if(HPbar.isMob(entity.gridX, entity.gridY)){
+                log("hh");
             }
         },
 
