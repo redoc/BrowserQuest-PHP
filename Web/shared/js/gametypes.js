@@ -1,5 +1,5 @@
-define([], function () {
-    Types = {
+define(function () {
+    var Types = {
         Messages: {
             HELLO: 0,
             WELCOME: 1,
@@ -319,6 +319,6 @@ define([], function () {
         }
         return typeName;
     };
-
+    window.Types = Types;
     return Types;
 });

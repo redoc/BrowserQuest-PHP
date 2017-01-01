@@ -547,6 +547,6 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
             this.attackCooldown = new Timer(rate);
         }
     });
-    
+
     return Character;
 });

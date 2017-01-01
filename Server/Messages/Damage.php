@@ -12,6 +12,7 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 namespace Server\Messages;
+use Server\Properties;
 
 class Damage
 {
@@ -27,7 +28,9 @@ class Damage
     {
         return array(TYPES_MESSAGES_DAMAGE, 
                 $this->entity->id,
-                $this->points, 
+                $this->points,
+                Properties::getHitPoints($this->entity->kind),  // 怪物总血量
+                $this->entity->hitPoints,                       // 怪物当前血量
         );
     }
 }
