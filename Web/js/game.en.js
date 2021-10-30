@@ -716,7 +716,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.client = new GameClient(this.host, this.port);
             
             //>>excludeStart("prodHost", pragmas.prodHost);
-            var config = this.app.config.local || this.app.config.dev;
+            var config = this.app.config;
             if(config) {
                 this.client.connect(config.dispatcher); // false if the client connects directly to a game server
                 connecting = true;
@@ -729,11 +729,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
             //>>includeEnd("prodHost");
             
-            this.client.onDispatched(function(host, port) {
-                log.debug("Dispatched to game server "+host+ ":"+port);
-                
-                self.client.host = host;
-                self.client.port = port;
+            this.client.onDispatched(function(url) {
+                log.debug("Dispatched to game server url="+ url);
+                self.client.url = url;
                 self.client.connect(); // connect to actual game server
             });
             

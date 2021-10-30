@@ -17,24 +17,19 @@ use \Workerman\Worker;
 require_once __DIR__ . '/vendor/autoload.php';
 
 function setup_web($web_env) {
-    $fpath = __DIR__.'/Web/config/config_local.json';
-    switch ($web_env) {
-        case "local":
-            $fpath = __DIR__.'/Web/config/config_local.json';
-            break;
-        case "prod":
-            $fpath = __DIR__.'/Web/config/config_prod.json';
-            break;
-        default:
-            $fpath = __DIR__.'/Web/config/config_local.json';
-            break;
+    $envs = array("dev", "alpha", "prod");
+    if (!is_string($web_env)) {
+        $web_env = "dev";
     }
-    // copy to config.json
+    if(!in_array($web_env, $envs)) {
+        throw Exception("setup web failed. invalid \$web_env=$web_env");
+    }
+    $src = __DIR__."/Web/config/config_$web_env.json";
     $dest = __DIR__.'/Web/config/config.json';
-    file_put_contents($dest, file_get_contents($fpath));
+    file_put_contents($dest, file_get_contents($src));
 }
 
-// 配置 web 服务的 config.json 路径
+// 根据环境变量创建 Web/config.json
 setup_web($_ENV["webenv"]);
 
 // 这里使用workerman的WebServer运行Web目录。Web目录也可以用nginx/Apache等容器运行

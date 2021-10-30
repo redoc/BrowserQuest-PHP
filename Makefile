@@ -11,7 +11,7 @@ release: release
 
 
 start:
-	docker run --rm -it -p 8787:8787 -p 8000:8000 -e webenv=local $(image_name)
+	docker run --rm -it -p 8787:8787 -p 8000:8000 $(image_name)
 
 
 deploy:

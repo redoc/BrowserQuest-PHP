@@ -5,7 +5,7 @@ The client directory should never be directly deployed to staging/production. De
 
 1) Configure the websocket host/port:
 
-In the client/config/ directory, copy config_build.json-dist to a new config_build.json file.
+In the client/config/ directory, copy `config_dev.json` to a new `config.json` file.
 Edit the contents of this file to change host/port settings.
 
 2) Run the following commands from the project root:

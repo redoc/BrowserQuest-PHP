@@ -714,7 +714,7 @@ function(GameTypes, InfoManager, BubbleManager, Renderer, Map, Animation, Sprite
                 connecting = false; // always in dispatcher mode in the build version
             
             //>>excludeStart("prodHost", pragmas.prodHost);
-            var config = this.app.config.local || this.app.config.dev;
+            var config = this.app.config;
             this.client = new GameClient(config.url);
             if(config) {
                 this.client.connect(config.dispatcher); // false if the client connects directly to a game server

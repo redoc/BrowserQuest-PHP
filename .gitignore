@@ -3,3 +3,4 @@
 .settings/org.eclipse.php.core.prefs
 Applications/BrowserQuest/Server/js
 *.gz
+asserts/
