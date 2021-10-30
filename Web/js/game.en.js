@@ -609,9 +609,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
         },
     
-        setServerOptions: function(host, port, username) {
-            this.host = host;
-            this.port = port;
+        setServerOptions: function(url, username) {
+            this.url = url;
             this.username = username;
         },
     

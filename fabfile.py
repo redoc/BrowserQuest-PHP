@@ -4,32 +4,22 @@ import os
 
 
 image_name = "zero:latest"
-dist_name = "zero.image.tar.gz"
+remote_image_name = f"cupen/{image_name}"
+
 
 @task
 def deploy(c):
-    upload(c)
-    setup(c)
     start(c)
 
 
 @task
-def upload(c):
-    local(f"docker save {image_name} | gzip > {dist_name}")
-    c.put(dist_name, f"/data/")
-    c.run(f"docker load --input /data/{dist_name}")
-
-
-@task
-def setup(c):
-    pass
-
-
-@task
 def start(c):
-    c.run("docker run -d -p 8787:8787 -p 8000:8000 zero:latest")
+    c.run(f"docker run -d -p 8787:8787 -p 8000:8000 --name zero -e webenv=prod {remote_image_name}")
 
 
 @task
-def restart(c):
-    c.run("docker restart zero")
+def full_restart(c):
+    c.run(f"docker stop zero")
+    c.run(f"docker rm zero")
+    c.run(f"docker pull {remote_image_name}")
+    start(c)

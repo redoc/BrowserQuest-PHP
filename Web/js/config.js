@@ -1,20 +1,21 @@
+function parseJson(text) {
+    try {
+        return JSON.parse(text);
+    } catch(e) {
+        console.log("parse json failed: "+text, e)
+        return null
+    }
+};
 
 define(['text!../config/config_build.json'],
-function(build) {
-    var config = {
-        dev: { host: "59.110.46.185", port: 8000, dispatcher: false },
-        build: JSON.parse(build)
-    };
-    
-    //>>excludeStart("prodHost", pragmas.prodHost);
-    require(['text!../config/config_local.json'], function(local) {
-        try {
-            config.local = JSON.parse(local);
-        } catch(e) {
-            // Exception triggered when config_local.json does not exist. Nothing to do here.
-        }
-    });
-    //>>excludeEnd("prodHost");
-    
-    return config;
-});
+    function(build) {
+        var config = {
+            dev: { url: "ws://59.110.46.185:8000", dispatcher: false },
+            build: JSON.parse(build)
+        };
+        require(['text!../config/config.json'], function(local) {
+            config.local = parseJson(local);
+        });
+        return config;
+    }
+);
