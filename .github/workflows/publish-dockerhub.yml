@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'master'
+      - 'dev'
   workflow_dispatch:
     inputs:
       image_tag:
