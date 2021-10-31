@@ -30,12 +30,12 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: cupen/zero:latest
+          tags: zzero0/zero:latest
         if: github.event_name == 'push'
 
       - name: Build and push(manual)
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: cupen/protoc:${{ github.event.inputs.image_tag }}
+          tags: zzero0/zero:${{ github.event.inputs.image_tag }}
         if: github.event_name == 'workflow_dispatch'
