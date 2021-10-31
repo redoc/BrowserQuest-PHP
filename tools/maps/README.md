@@ -29,12 +29,10 @@ Note: This tool was written with OSX in mind. If you are using a different OS (e
 - Optional: Install Growl + growlnotify if you are on OSX.
 
 **Usage:**
-
-1. `cd tools/maps/`
-
-2. `./export.py client` or `./export.py server`
-
-You must run both commands in order to export the client and server map files. There is no one-step export command for both map types yet.
+```
+make init
+make build
+```
 
 **Warning:** depending on the `.tmx` filesize, the exporting process can take up to several minutes.
 
@@ -52,8 +50,8 @@ Depending on what you want to change, it's therefore not always needed to export
 
 **How the exporting process works:**
 
-1. The Tiled map TMX file is converted to a temporary JSON file by `tmx2json.py`.
-2. This file is be processed by `processmap.js` and returned as an object. This object will have different properties depending on whether we are exporting the client or the server map.
+1. The Tiled map TMX file is converted to a temporary JSON file by `main.py`.
+2. This file is be processed by `main.py` and returned as an object. This object will have different properties depending on whether we are exporting the client or the server map.
 3. The processed map object is saved as the final world map JSON file(s) in the appropriate directories.
 4. The temporary file from step 1. is deleted.
 

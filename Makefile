@@ -1,6 +1,7 @@
 image_name:=zero:latest
 remote_image_name:=cupen/zero:latest
 
+
 build:
 	docker build . -t $(image_name)
 

@@ -8,7 +8,7 @@ class Log {
 
 Object.defineProperty(global, 'define', { value: function(arg){ return arg} })
 var log = new Log(),
-    _ = require("underscoret");
+    _ = require("underscore");
     Types = require("../../Web/shared/js/gametypes");
 
 var map,

@@ -1,11 +1,18 @@
 #!/usr/bin/env node
 
+class Log {
+    constructor() {}
+    debug(log) { return console.log(log); }
+    info(log) { return console.log(log); }
+    warn(log) { return console.log(log); }
+    error(log) { return console.log(log); }
+}
+
 var util = require('util'),
-    Log = require('log'),
     path = require("path"),
     fs = require("fs"),
     processMap = require('./processmap'),
-    log = new Log(Log.DEBUG);
+    log = new Log();
     
 var source = process.argv[2],
     destination = process.argv[3],
@@ -47,7 +54,7 @@ function main() {
 function getTiledJSONmap(filename, callback) {
     var self = this;
     
-    path.exists(filename, function(exists) {
+    fs.exists(filename, function(exists) {
         if(!exists) {  
             log.error(filename + " doesn't exist.")
             return;
