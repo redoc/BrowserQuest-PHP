@@ -4,3 +4,5 @@
 Applications/BrowserQuest/Server/js
 *.gz
 asserts/
+tools/maps/tmx/*.json
+__pycache__/

@@ -1,310 +1,291 @@
-class Log {
-    constructor() {}
-    debug(log) { return console.log(log); }
-    info(log) { return console.log(log); }
-    warn(log) { return console.log(log); }
-    error(log) { return console.log(log); }
-}
+import logging
+import json
 
-Object.defineProperty(global, 'define', { value: function(arg){ return arg} })
-var log = new Log(),
-    _ = require("underscore");
-    Types = require("../../Web/shared/js/gametypes");
+log = logging.root
 
-var map,
-    mode,
-    collidingTiles = {},
-    staticEntities = {},
-    mobsFirstgid;
+class Types:
+    @staticmethod
+    def getKindFromString(name):
+        return 1
 
-module.exports = function processMap(json, options) {
-    var self = this,
-        Tiled = json.map,
-		layerIndex = 0,
-		tileIndex = 0,
-		tilesetFilepath = "";
-	
-    map = {
-            width: 0,
-            height: 0,
-            collisions: [],
-            doors: [],
-            checkpoints: []
-        };
-    mode = options.mode;
+class FakeJSObject:
+    def __init__(self, d=None):
+        if d: self.__dict__.update(d)
+        pass
+
+    def __getattr__(self, name: str):
+        if name not in self.__dict__:
+            return None
+        return self.__dict__[name]
+
+    def set_attrs(self, **kwargs):
+        self.__dict__.update(kwargs)
+        pass
+
+    def to_json(self):
+        return json.dumps(self, default=lambda o: o.__dict__, separators=(',', ':'))
+
+
+class FakeJSArray(list):
+    def __init__(self, v=None):
+        pass
+
+    def __len__(self) -> int:
+        return super().__len__(self)
+
+    def __getattr__(self, name: str):
+        return None
+
+
+map = FakeJSObject()
+mode = None
+collidingTiles = {}
+staticEntities = {}
+mobsFirstgid = ""
+
+def load_map(fpath) -> FakeJSObject:
+    def _decoder(d):
+        return FakeJSObject(d) if isinstance(d, dict) else d
+    with open(fpath) as fp:
+        return json.load(fp, object_hook=_decoder)
+    pass
+
+def processMap(data: FakeJSObject, options):
+    Tiled = data.map
+    layerIndex = 0
+    tileIndex = 0
+    tilesetFilepath = ""
+    map.set_attrs(
+        width= 0,
+        height= 0,
+        collisions= [],
+        doors= [],
+        checkpoints= []
+    )
+    mode = options["mode"]
+    if mode == "client":
+        map.data = []
+        map.high = []
+        map.animated = {}
+        map.blocking = []
+        map.plateau = []
+        map.musicAreas = []
+
+    if mode == "server":
+        map.roamingAreas = []
+        map.chestAreas = []
+        map.staticChests = []
+        map.staticEntities = {}
     
-    if(mode === "client") {
-        map.data = [];
-        map.high = [];
-        map.animated = {};
-        map.blocking = [];
-        map.plateau = [];
-        map.musicAreas = [];
-    }
-    if(mode === "server") {
-        map.roamingAreas = [];
-        map.chestAreas = [];
-        map.staticChests = [];
-        map.staticEntities = {};
-    }
-    
-    log.info("Processing map info...");
-    map.width = Tiled.width;
-    map.height = Tiled.height;
-    map.tilesize = Tiled.tilewidth;
+    log.info("Processing map info...")
+    map.width = Tiled.width
+    map.height = Tiled.height
+    map.tilesize = Tiled.tilewidth
 
-    // Tile properties (collision, z-index, animation length...)
-    var tileProperties;
-    var handleProp = function(property, id) {
-        if(property.name === "c") {
-            collidingTiles[id] = true;
-        }
+    # Tile properties (collision, z-index, animation length...)
+    tileProperties = FakeJSObject()
+    def handleProp(property, id):
+        if property.name == "c":
+            collidingTiles[id] = True
         
-        if(mode === "client") {
-            if(property.name === "v") {
-                map.high.push(id);
-            }
-            if(property.name === "length") {
-                if(!map.animated[id]) {
-                    map.animated[id] = {};
-                }
-                map.animated[id].l = property.value;
-            }
-            if(property.name === "delay") {
-                if(!map.animated[id]) {
-                    map.animated[id] = {};
-                }
-                map.animated[id].d = property.value;
-            }
-        }
-    }
-    
-    if(Tiled.tileset instanceof Array) {
-        _.each(Tiled.tileset, function(tileset) {
-            if(tileset.name === "tilesheet") {
-                log.info("Processing terrain properties...");
-                tileProperties = tileset.tile;
-                for(var i=0; i < tileProperties.length; i += 1) {
-                    var property = tileProperties[i].properties.property;
-                    var tilePropertyId = tileProperties[i].id + 1;
-                    if(property instanceof Array) {
-                        for(var pi=0; pi < property.length; pi += 1) {
-                            handleProp(property[pi], tilePropertyId);
-                        }
-                    } else {
-                        handleProp(property, tilePropertyId);
-                    }
-                }
-            }
-            else if(tileset.name === "Mobs" && mode === "server") {
-                log.info("Processing static entity properties...");
-                mobsFirstgid = tileset.firstgid;
-                _.each(tileset.tile, function(p) {
-                    var property = p.properties.property,
-                        id = p.id + 1;
+        if mode == "client":
+            if property.name == "v":
+                map.high.append(id)
+            if property.name == "length":
+                if id not in map.animated:
+                    map.animated[id] = {}
+                map.animated[id]["l"] = property.value
 
-                    if(property.name === "type") {
-                        staticEntities[id] = property.value;
-                    }
-                });
-            }
-        });
-    } else {
-        log.error("A tileset is missing");
-    }
+            if property.name == "delay":
+                if id not in map.animated:
+                    map.animated[id] = {}
+                map.animated[id]["d"] = property.value
     
+    if isinstance(Tiled.tileset, list):
+        for tileset in Tiled.tileset:
+            if tileset.name == "tilesheet":
+                log.info("Processing terrain properties...")
+                tileProperties = tileset.tile
+                for i in range(len(tileProperties)):
+                    property = tileProperties[i].properties.property
+                    tilePropertyId = tileProperties[i].id + 1
+                    if isinstance(property, list):
+                        for pi in range(len(property)):
+                            handleProp(property[pi], tilePropertyId)
+                    else:
+                        handleProp(property, tilePropertyId)
+                    pass
+            elif tileset.name == "Mobs" and mode == "server":
+                log.info("Processing static entity properties...")
+                mobsFirstgid = tileset.firstgid
+                for p in tileset.tile:
+                    property = p.properties.property
+                    id = p.id + 1
+                    if property.name == "type":
+                        staticEntities[id] = property.value
+                    pass
+    else:
+        log.error("A tileset is missing")
     
-    for(var i=0; i < Tiled.objectgroup.length; i += 1) {
-        var group = Tiled.objectgroup[i];
-        if(group.name === 'doors') {
-            var doors = group.object;
-            log.info("Processing doors...");
-            for(var j=0; j < doors.length; j += 1) {
-                map.doors[j] = {
-                    x: doors[j].x / map.tilesize,
-                    y: doors[j].y / map.tilesize,
-                    p: (doors[j].type === 'portal') ? 1 : 0,
-                }
-                var doorprops = doors[j].properties.property;
-                for(var k=0; k < doorprops.length; k += 1) {
-                    map.doors[j]['t'+doorprops[k].name] = doorprops[k].value;
-                }
-            }
-        }
-    }
+    for i in range(len(Tiled.objectgroup)):
+        group = Tiled.objectgroup[i]
+        if group.name == 'doors':
+            doors = group.object
+            log.info("Processing doors...")
+            map.doors = []
+            for j in range(len(doors)):
+                map.doors.append({
+                    "x": int(doors[j].x / map.tilesize),
+                    "y": int(doors[j].y / map.tilesize),
+                    "p": 1 if doors[j].type == 'portal' else 0
+                })
+                doorprops = doors[j].properties.property
+                for k in range(len(doorprops)):
+                    map.doors[j]['t'+doorprops[k].name] = doorprops[k].value
+                pass
+            pass
+        pass
 
-    // Object layers
-    _.each(Tiled.objectgroup, function(objectlayer) {
-        if(objectlayer.name === "roaming" && mode === "server") {
-            log.info("Processing roaming areas...");
-            var areas = objectlayer.object;
-    
-            for(var i=0; i < areas.length; i += 1) {
-                if(areas[i].properties) {
-                    var nb = areas[i].properties.property.value;
+    # Object layers
+    for objectlayer in Tiled.objectgroup:
+        if objectlayer.name == "roaming" and mode == "server":
+            log.info("Processing roaming areas...")
+            areas = objectlayer.object
+            for i in range(len(areas)):
+                if areas[i].properties:
+                    nb = areas[i].properties.property.value
+                map.roamingAreas[i] = {
+                    "id": i,
+                    "x": int(areas[i].x / 16),
+                    "y": int(areas[i].y / 16),
+                    "width": int(areas[i].width / 16),
+                    "height": int(areas[i].height / 16),
+                    "type": areas[i].type,
+                    "nb": nb
                 }
-        
-                map.roamingAreas[i] = {  id: i,
-                                         x: areas[i].x / 16,
-                                         y: areas[i].y / 16,
-                                         width: areas[i].width / 16,
-                                         height: areas[i].height / 16,
-                                         type: areas[i].type,
-                                         nb: nb
-                                       };
-            }
-        }
-        else if(objectlayer.name === "chestareas" && mode === "server") {
-            log.info("Processing chest areas...");
-            _.each(objectlayer.object, function(area) {
-                var chestArea = {
-                    x: area.x / map.tilesize,
-                    y: area.y / map.tilesize,
-                    w: area.width / map.tilesize,
-                    h: area.height / map.tilesize
-                };
-                _.each(area.properties.property, function(prop) {
-                    if(prop.name === 'items') {
-                        chestArea['i'] = _.map(prop.value.split(','), function(name) { 
-                            return Types.getKindFromString(name);
-                        });
-                    } else {
-                        chestArea['t'+prop.name] = prop.value;
-                    }
-                });
-                map.chestAreas.push(chestArea);
-            });
-        }
-        else if(objectlayer.name === "chests" && mode === "server") {
-            log.info("Processing static chests...");
-            _.each(objectlayer.object, function(chest) {
-                var items = chest.properties.property.value;
-                var newChest = {
-                    x: chest.x / map.tilesize,
-                    y: chest.y / map.tilesize,
-                    i: _.map(items.split(','), function(name) {
-                        return Types.getKindFromString(name);
-                    })
-                };
-                map.staticChests.push(newChest);
-            });
-        }
-        else if(objectlayer.name === "music" && mode === "client") {
-            log.info("Processing music areas...");
-            _.each(objectlayer.object, function(music) {
-                var musicArea = {
-                    x: music.x / map.tilesize,
-                    y: music.y / map.tilesize,
-                    w: music.width / map.tilesize,
-                    h: music.height / map.tilesize,
-                    id: music.properties.property.value
-                };
-                map.musicAreas.push(musicArea);
-            });
-        }
-        else if(objectlayer.name === "checkpoints") {
-            log.info("Processing check points...");
-            var count = 0;
-            _.each(objectlayer.object, function(checkpoint) {
-                var cp = {
-                    id: ++count,
-                    x: checkpoint.x / map.tilesize,
-                    y: checkpoint.y / map.tilesize,
-                    w: checkpoint.width / map.tilesize,
-                    h: checkpoint.height / map.tilesize
-                };
-                if(mode === "server") {
-                    cp.s = checkpoint.type ? 1 : 0;
+        elif objectlayer.name == "chestareas" and mode == "server":
+            log.info("Processing chest areas...")
+            for area in objectlayer.object:
+                chestArea = {
+                    "x": int(area.x / map.tilesize),
+                    "y": int(area.y / map.tilesize),
+                    "w": int(area.width / map.tilesize),
+                    "h": int(area.height / map.tilesize),
                 }
-                map.checkpoints.push(cp);
-            });
-        }
-    });
+                for prop in area.properties.property:
+                    if prop.name == 'items':
+                        chestArea['i'] = list(map(lambda name: Types.getKindFromString(name)), prop.value.split(','))
+                    else:
+                        chestArea['t'+prop.name] = prop.value
+                    pass
+                map.chestAreas.append(chestArea)
+        elif objectlayer.name == "chests" and mode == "server":
+            log.info("Processing static chests...")
+            for chest in objectlayer.object:
+                items = chest.properties.property.value
+                newChest = {
+                    "x": int(chest.x / map.tilesize),
+                    "y": int(chest.y / map.tilesize),
+                    "i": list(map(lambda name: Types.getKindFromString(name), items.split(',')))
+                }
+                map.staticChests.append(newChest)
+        elif objectlayer.name == "music" and mode == "client":
+            log.info("Processing music areas...")
+            for music in objectlayer.object:
+                musicArea = {
+                    "x": int(music.x / map.tilesize),
+                    "y": int(music.y / map.tilesize),
+                    "w": int(music.width / map.tilesize),
+                    "h": int(music.height / map.tilesize),
+                    "id": music.properties.property.value
+                }
+                map.musicAreas.append(musicArea)
+        elif objectlayer.name == "checkpoints":
+            log.info("Processing check points...")
+            count = 0
+            for checkpoint in objectlayer.object:
+                count += 1
+                cp = {
+                    "id": count,
+                    "x": int(checkpoint.x / map.tilesize),
+                    "y": int(checkpoint.y / map.tilesize),
+                    "w": int(checkpoint.width / map.tilesize),
+                    "h": int(checkpoint.height / map.tilesize),
+                }
+                if mode == "server":
+                    cp.s = 1 if checkpoint.type else 0
+                map.checkpoints.append(cp)
+                pass
 
-    // Layers
-    if(Tiled.layer instanceof Array) {
-        for(var i=Tiled.layer.length - 1; i > 0; i -= 1) {
-            processLayer(Tiled.layer[i]);
-        }
-    } else {
-        processLayer(Tiled.layer);
-    }
+    # Layers
+    if isinstance(Tiled.layer,  list):
+        # for(var i=Tiled.layer.length - 1; i > 0; i -= 1) {
+        for i in reversed(range(len(Tiled.layer))):
+            processLayer(Tiled.layer[i])
+    else:
+        processLayer(Tiled.layer)
     
-    if(mode === "client") {
-        // Set all undefined tiles to 0
-        for(var i=0, max=map.data.length; i < max; i+=1) {
-            if(!map.data[i]) {
-                map.data[i] = 0;
-            }
-        }
-    }
-      
-    return map;
-};
+    if mode == "client":
+        # Set all undefined tiles to 0
+        for i in range(len(map.data)):
+            if not isinstance(map.data[i], int):
+                map.data[i] = 0
+    return map
 
-var processLayer = function processLayer(layer) {
-    if(mode === "server") {
-        // Mobs
-        if(layer.name === "entities") {
-            log.info("Processing positions of static entities ...");
-            var tiles = layer.data.tile;
-            
-            for(var j=0; j < tiles.length; j += 1) {
-                var gid = tiles[j].gid - mobsFirstgid + 1;
-                if(gid && gid > 0) {
-                    map.staticEntities[j] = staticEntities[gid];
-                }
-            }
-        }
-    }
+def processLayer(layer):
+    if mode == "server":
+        # Mobs
+        if layer.name == "entities":
+            log.info("Processing positions of static entities ...")
+            tiles = layer.data.tile
+            for j in range(len(tiles)):
+                gid = tiles[j].gid - mobsFirstgid + 1
+                if gid and gid > 0:
+                    map.staticEntities[j] = staticEntities[gid]
+                pass
+            pass
+        pass
+    pass
     
-    var tiles = layer.data.tile;
-    
-    if(mode === "client" && layer.name === "blocking") {
-        log.info("Processing blocking tiles...");
-        for(var i=0; i < tiles.length; i += 1) {
-            var gid = tiles[i].gid;
-            
-            if(gid && gid > 0) {
-                map.blocking.push(i);
-            }
-        }
-    }
-    else if(mode === "client" && layer.name === "plateau") {
-        log.info("Processing plateau tiles...");
-        for(var i=0; i < tiles.length; i += 1) {
-            var gid = tiles[i].gid;
-            
-            if(gid && gid > 0) {
-                map.plateau.push(i);
-            }
-        }
-    }
-    else if(layer.visible !== 0 && layer.name !== "entities") {
-        log.info("Processing layer: "+ layer.name);
-        
-        for(var j=0; j < tiles.length; j += 1) {
-            var gid = tiles[j].gid;
-
-            if(mode === "client") {
-                // Set tile gid in the tilesheet
-                if(gid > 0) {
-                    if(map.data[j] === undefined) {
-                        map.data[j] = gid;
-                    }
-                    else if(map.data[j] instanceof Array) {
-                        map.data[j].unshift(gid);
-                    }
-                    else {
-                        map.data[j] = [gid, map.data[j]];
-                    }
-                }
-            }
-            
-            // Colliding tiles
-            if(gid in collidingTiles) {
-                map.collisions.push(j);
-            }
-        }
-    }
-}
+    tiles = layer.data.tile
+    if mode == "client" and layer.name == "blocking":
+        log.info("Processing blocking tiles...")
+        for i in range(len(tiles)):
+            gid = tiles[i].gid
+            if gid and gid > 0:
+                map.blocking.append(i)
+                pass
+            pass
+        pass
+    elif mode == "client" and layer.name == "plateau":
+        log.info("Processing plateau tiles...")
+        for i in range(len(tiles)):
+            gid = tiles[i].gid
+            if gid and gid > 0:
+                map.plateau.append(i)
+                pass
+            pass
+        pass
+    elif layer.visible != 0 and layer.name != "entities":
+        log.info("Processing layer: "+ layer.name)
+        for j in range(len(tiles)):
+            gid = tiles[j].gid
+            if mode == "client":
+                # Set tile gid in the tilesheet
+                if (gid > 0):
+                    if map.data[j] is None:
+                        map.data[j] = gid
+                    elif isinstance(map.data[j], list): 
+                        # map.data[j].unshift(gid)
+                        map.data[j].insert(0, gid)
+                    else:
+                        map.data[j] = [gid, map.data[j]]
+                    pass
+                pass
+            # Colliding tiles
+            if gid in collidingTiles:
+                map.collisions.append(j)
+            pass
+        pass
+    pass
+pass

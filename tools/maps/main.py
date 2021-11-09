@@ -1,5 +1,6 @@
 import os, json
 from lxml import etree
+import cbox
 
 def tmx2json(tmx, dest):
     def process(el, tagname):
@@ -32,29 +33,26 @@ def tmx2json(tmx, dest):
     pass
 
 
-def export2json(src, dest):
-    destination = dest,
-    if not os.path.exists(src):
-        raise Exception(src + " doesn't exist.")
-    with open(src) as fs:
-        data = json.load(fs)
-
-    map = processMap(data, {})
-    jsonMap = json.dumps(map) # Save the processed map object as JSON data
+def export2json(src, dest, mode):
+    from processmap import processMap, load_map
+    mode_defs = ["client", "server"]
+    if mode not in mode_defs:
+        raise Exception(f"'mode' must be one of {mode_defs}")
+    data = load_map(src)
+    map = processMap(data, {"mode": mode})
+    jsonMap = map.to_json() # Save the processed map object as JSON data
     # map in a .json file for ajax loading
-    fpath = destination
-    with open(fpath, "w") as fp:
+    with open(dest, "w") as fp:
         fp.write(jsonMap)
-        print(f"Finished processing map file: {fpath} was saved.");
+        print(f"Finished processing map file: {dest} was saved.");
     
     # map in a .js file for web worker loading
-    fpath = destination.replace(".json", ".js")
-    with open(destination, "w") as fp:
+    fpath = dest.replace(".json", ".js")
+    with open(fpath, "w") as fp:
         fp.write("var mapData = " + jsonMap)
         print(f"Finished processing map file: {fpath} was saved.");
     pass
 
 
 if __name__ == "__main__":
-    import cbox
     cbox.main([tmx2json, export2json])

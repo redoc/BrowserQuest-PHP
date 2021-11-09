@@ -3,8 +3,8 @@ python_bin:=$(python_dir)/bin/python
 node_bin:=node
 src_file:=tmx/map.tmx
 map_json:=$(src_file).json
-dest_file_client:=../../Web/maps/world_client
-dest_file_server:=../../Server/Maps/world_server.json
+dest_file_client:=../../Web/maps/world_client.new.json
+dest_file_server:=../../Server/Maps/world_server.new.json
 
 
 all: build
@@ -31,9 +31,13 @@ $(map_json):
 
 client: $(map_json)
 	@echo generating map data for client
-	$(node_bin) ./exportmap.js $(dest_file_client) $(map_json) client
+	$(python_bin) ./main.py export2json --src $(map_json) --dest $(dest_file_client) --mode client
 
 
 server: $(map_json)
 	@echo generating map data for server
-	$(node_bin) ./exportmap.js $(map_json) $(dest_file_server) server
+	$(python_bin) ./main.py export2json --src $(map_json) --dest $(dest_file_server) --mode server
+
+
+diff-map:
+	json_diff $(subst .new,,$(dest_file_client))   $(dest_file_client)
