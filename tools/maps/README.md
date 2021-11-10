@@ -32,6 +32,7 @@ Note: This tool was written with OSX in mind. If you are using a different OS (e
 ```
 make init
 make build
+make client server
 ```
 
 **Warning:** depending on the `.tmx` filesize, the exporting process can take up to several minutes.

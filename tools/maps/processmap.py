@@ -30,11 +30,28 @@ class FakeJSArray(list):
     def __init__(self, v=None):
         pass
 
-    def __len__(self) -> int:
-        return super().__len__(self)
+    def __getitem__(self, index):
+        length = super().__len__(self)
+        if index < 0 or index >= length:
+            return None
+        return super().__getitem__(index)
 
-    def __getattr__(self, name: str):
-        return None
+    def __setitem__(self, index, v):
+        length = super().__len__(self)
+        if v < 0:
+            raise IndexError(f"invalid index: {index}, current length:{length}")
+        if v < length:
+            return super().__setitem__(index, v)
+        elif v == length:
+            return super().append(v)
+        else:
+            fill = index - (len(self) - 1)
+            super().extend([None]*fill)
+            super().__setitem__(index, v)
+        pass
+
+    def __len__(self) -> int:
+        return super().__len__()
 
 
 map = FakeJSObject()
@@ -51,6 +68,12 @@ def load_map(fpath) -> FakeJSObject:
     pass
 
 def processMap(data: FakeJSObject, options):
+    global map
+    global mobsFirstgid
+    global staticEntities
+    global collidingTiles
+    global mode
+    mode = options["mode"]
     Tiled = data.map
     layerIndex = 0
     tileIndex = 0
@@ -62,7 +85,6 @@ def processMap(data: FakeJSObject, options):
         doors= [],
         checkpoints= []
     )
-    mode = options["mode"]
     if mode == "client":
         map.data = []
         map.high = []
@@ -270,17 +292,19 @@ def processLayer(layer):
         log.info("Processing layer: "+ layer.name)
         for j in range(len(tiles)):
             gid = tiles[j].gid
+            # print(f"j={j}")
+            if not gid or gid <= 0:
+                continue
             if mode == "client":
                 # Set tile gid in the tilesheet
-                if (gid > 0):
-                    if map.data[j] is None:
-                        map.data[j] = gid
-                    elif isinstance(map.data[j], list): 
-                        # map.data[j].unshift(gid)
-                        map.data[j].insert(0, gid)
-                    else:
-                        map.data[j] = [gid, map.data[j]]
-                    pass
+                if not array_safe_get(map.data, j):
+                    # map.data[j] = gid
+                    array_safe_set(map.data, j, gid)
+                elif isinstance(map.data[j], list): 
+                    # map.data[j].unshift(gid)
+                    map.data[j].insert(0, gid)
+                else:
+                    map.data[j] = [gid, map.data[j]]
                 pass
             # Colliding tiles
             if gid in collidingTiles:
@@ -289,3 +313,21 @@ def processLayer(layer):
         pass
     pass
 pass
+
+def array_has_index(arr, i) -> bool:
+    return i >= 0 and i < len(arr)
+
+def array_safe_get(arr, i):
+    return arr[i] if array_has_index(arr, i) else None
+
+def array_safe_set(arr, i, v):
+    if array_has_index(arr, i):
+        arr[i] = v
+    else:
+        fill = i - (len(arr) - 1)
+        # print(f"i={i} fill={fill} length={len(arr)}")
+        arr.extend([None]*fill)
+        arr[i] = v
+    # from IPython import embed; embed()
+    pass
+ 

@@ -39,5 +39,5 @@ server: $(map_json)
 	$(python_bin) ./main.py export2json --src $(map_json) --dest $(dest_file_server) --mode server
 
 
-diff-map:
+diff:
 	json_diff $(subst .new,,$(dest_file_client))   $(dest_file_client)
