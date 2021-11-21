@@ -1,0 +1,294 @@
+{
+    "entities": [
+        {
+            "id": 1,
+            "kind": "player",
+            "name": "warrior"
+        },
+        {
+            "id": 20,
+            "kind": "armor",
+            "name": "firefox"
+        },
+        {
+            "id": 21,
+            "kind": "armor",
+            "name": "clotharmor"
+        },
+        {
+            "id": 22,
+            "kind": "armor",
+            "name": "leatherarmor"
+        },
+        {
+            "id": 23,
+            "kind": "armor",
+            "name": "mailarmor"
+        },
+        {
+            "id": 24,
+            "kind": "armor",
+            "name": "platearmor"
+        },
+        {
+            "id": 25,
+            "kind": "armor",
+            "name": "redarmor"
+        },
+        {
+            "id": 26,
+            "kind": "armor",
+            "name": "goldenarmor"
+        },
+        {
+            "id": 35,
+            "kind": "object",
+            "name": "flask"
+        },
+        {
+            "id": 36,
+            "kind": "object",
+            "name": "burger"
+        },
+        {
+            "id": 37,
+            "kind": "object",
+            "name": "chest"
+        },
+        {
+            "id": 38,
+            "kind": "object",
+            "name": "firepotion"
+        },
+        {
+            "id": 39,
+            "kind": "object",
+            "name": "cake"
+        },
+        {
+            "id": 40,
+            "kind": "npc",
+            "name": "guard"
+        },
+        {
+            "id": 41,
+            "kind": "npc",
+            "name": "king"
+        },
+        {
+            "id": 42,
+            "kind": "npc",
+            "name": "octocat"
+        },
+        {
+            "id": 43,
+            "kind": "npc",
+            "name": "villagegirl"
+        },
+        {
+            "id": 44,
+            "kind": "npc",
+            "name": "villager"
+        },
+        {
+            "id": 45,
+            "kind": "npc",
+            "name": "priest"
+        },
+        {
+            "id": 46,
+            "kind": "npc",
+            "name": "scientist"
+        },
+        {
+            "id": 47,
+            "kind": "npc",
+            "name": "agent"
+        },
+        {
+            "id": 48,
+            "kind": "npc",
+            "name": "rick"
+        },
+        {
+            "id": 49,
+            "kind": "npc",
+            "name": "nyan"
+        },
+        {
+            "id": 50,
+            "kind": "npc",
+            "name": "sorcerer"
+        },
+        {
+            "id": 51,
+            "kind": "npc",
+            "name": "beachnpc"
+        },
+        {
+            "id": 52,
+            "kind": "npc",
+            "name": "forestnpc"
+        },
+        {
+            "id": 53,
+            "kind": "npc",
+            "name": "desertnpc"
+        },
+        {
+            "id": 54,
+            "kind": "npc",
+            "name": "lavanpc"
+        },
+        {
+            "id": 55,
+            "kind": "npc",
+            "name": "coder"
+        },
+        {
+            "id": 60,
+            "kind": "weapon",
+            "name": "sword1"
+        },
+        {
+            "id": 61,
+            "kind": "weapon",
+            "name": "sword2"
+        },
+        {
+            "id": 62,
+            "kind": "weapon",
+            "name": "redsword"
+        },
+        {
+            "id": 63,
+            "kind": "weapon",
+            "name": "goldensword"
+        },
+        {
+            "id": 64,
+            "kind": "weapon",
+            "name": "morningstar"
+        },
+        {
+            "id": 65,
+            "kind": "weapon",
+            "name": "axe"
+        },
+        {
+            "id": 66,
+            "kind": "weapon",
+            "name": "bluesword"
+        }
+    ],
+    "messages": [
+        {
+            "id": "HELLO",
+            "value": 1
+        },
+        {
+            "id": "WELCOME",
+            "value": 1
+        },
+        {
+            "id": "SPAWN",
+            "value": 2
+        },
+        {
+            "id": "DESPAWN",
+            "value": 3
+        },
+        {
+            "id": "MOVE",
+            "value": 4
+        },
+        {
+            "id": "LOOTMOVE",
+            "value": 5
+        },
+        {
+            "id": "AGGRO",
+            "value": 6
+        },
+        {
+            "id": "ATTACK",
+            "value": 7
+        },
+        {
+            "id": "HIT",
+            "value": 8
+        },
+        {
+            "id": "HURT",
+            "value": 9
+        },
+        {
+            "id": "HEALTH",
+            "value": 10
+        },
+        {
+            "id": "CHAT",
+            "value": 11
+        },
+        {
+            "id": "LOOT",
+            "value": 13
+        },
+        {
+            "id": "EQUIP",
+            "value": 13
+        },
+        {
+            "id": "DROP",
+            "value": 14
+        },
+        {
+            "id": "TELEPORT",
+            "value": 15
+        },
+        {
+            "id": "DAMAGE",
+            "value": 16
+        },
+        {
+            "id": "POPULATION",
+            "value": 17
+        },
+        {
+            "id": "KILL",
+            "value": 18
+        },
+        {
+            "id": "LIST",
+            "value": 19
+        },
+        {
+            "id": "WHO",
+            "value": 20
+        },
+        {
+            "id": "ZONE",
+            "value": 21
+        },
+        {
+            "id": "DESTROY",
+            "value": 22
+        },
+        {
+            "id": "HP",
+            "value": 23
+        },
+        {
+            "id": "BLINK",
+            "value": 24
+        },
+        {
+            "id": "OPEN",
+            "value": 25
+        },
+        {
+            "id": "CHECK",
+            "value": 26
+        }
+    ]
+}

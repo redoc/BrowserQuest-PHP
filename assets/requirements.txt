@@ -1,0 +1,4 @@
+excel2xx == 0.6
+cbox >= 0.5
+lxml
+ipython

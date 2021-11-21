@@ -7,14 +7,12 @@ dest_file_client:=../../Web/maps/world_client.new.json
 dest_file_server:=../../Server/Maps/world_server.new.json
 
 
-all: build
+all: client
 	@echo all done.
 
 
 init:
-	# mkdir -p $(shell dirname $(python_dir))
-	python3 -m venv $(python_dir)
-	$(python_bin) -m pip install -r requirements.txt
+	cd ../ && make init
 
 
 clean:

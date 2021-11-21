@@ -1,8 +1,6 @@
-.buildpath
-.project
-.settings/org.eclipse.php.core.prefs
-Applications/BrowserQuest/Server/js
+.*
+.*/
+__pycache__
 *.gz
-asserts/
-tools/maps/tmx/*.json
-__pycache__/
+*.swp
+assets/maps/tmx/*.json

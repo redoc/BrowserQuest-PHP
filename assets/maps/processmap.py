@@ -297,9 +297,9 @@ def processLayer(layer):
                 continue
             if mode == "client":
                 # Set tile gid in the tilesheet
-                if not array_safe_get(map.data, j):
+                if not jsarray_get(map.data, j):
                     # map.data[j] = gid
-                    array_safe_set(map.data, j, gid)
+                    jsarray_set(map.data, j, gid)
                 elif isinstance(map.data[j], list): 
                     # map.data[j].unshift(gid)
                     map.data[j].insert(0, gid)
@@ -314,14 +314,14 @@ def processLayer(layer):
     pass
 pass
 
-def array_has_index(arr, i) -> bool:
+def jsarray_has_index(arr, i) -> bool:
     return i >= 0 and i < len(arr)
 
-def array_safe_get(arr, i):
-    return arr[i] if array_has_index(arr, i) else None
+def jsarray_get(arr, i):
+    return arr[i] if jsarray_has_index(arr, i) else None
 
-def array_safe_set(arr, i, v):
-    if array_has_index(arr, i):
+def jsarray_set(arr, i, v):
+    if jsarray_has_index(arr, i):
         arr[i] = v
     else:
         fill = i - (len(arr) - 1)
