@@ -1,6 +1,12 @@
-.*
-.*/
 __pycache__
+target/
+.*/
+
+.*/
 *.gz
 *.swp
 assets/maps/tmx/*.json
+
+
+Web/maps/world_client.new.js
+Web/maps/world_client.new.json

@@ -6,7 +6,7 @@ build:
 	docker build . -t $(image_name)
 
 
-release: release
+release: build
 	docker tag $(image_name) $(remote_image_name)
 	docker push $(remote_image_name)
 

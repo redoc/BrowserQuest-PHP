@@ -1,0 +1,9 @@
+assets/
+target/
+.*/
+
+Makefile
+.*
+*.py
+*.txt
+*.md
