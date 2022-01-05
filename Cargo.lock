@@ -1996,5 +1996,6 @@ dependencies = [
  "actix-web-actors",
  "docopt",
  "futures",
+ "log",
  "serde",
 ]
