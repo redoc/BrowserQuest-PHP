@@ -1,0 +1,45 @@
+version: '3.4'
+services:
+  whoami:
+    container_name: whoami-zero
+    image: traefik/whoami
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami-zero.rule=Host(`zero.givemecolor.cc`) && Path(`/whoami`)"
+      - "traefik.http.routers.whoami-zero.entrypoints=websecure"
+      - "traefik.http.routers.whoami-zero.tls=true"
+      - "traefik.http.routers.whoami-zero.tls.certresolver=resolver2"
+
+
+  zero:
+    container_name: zero
+    image: zzero0/zero:latest
+    ports:
+      - 8787:8787
+      - 8000:8000 
+    environment:
+      - webenv=prod
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.zero.rule=Host(`zero.givemecolor.cc`)"
+      - "traefik.http.routers.zero.entrypoints=websecure"
+      - "traefik.http.routers.zero.tls=true"
+      - "traefik.http.routers.zero.tls.certresolver=resolver2"
+        # - "traefik.http.routers.zero.middlewares=sslheader@docker"
+      - "traefik.http.routers.zero.service=s_zero"
+      - "traefik.http.services.s_zero.loadbalancer.server.port=8787"
+
+      - "traefik.http.routers.zero2.rule=Host(`zero.givemecolor.cc`) && Headers(`Upgrade`, `websocket`)"
+      - "traefik.http.routers.zero2.entrypoints=websecure"
+      - "traefik.http.routers.zero2.tls=true"
+      - "traefik.http.routers.zero2.tls.certresolver=resolver2"
+      - "traefik.http.routers.zero2.service=s_zero2"
+      - "traefik.http.services.s_zero2.loadbalancer.server.port=8000"
+        # - "traefik.http.routers.zero2.middlewares=sslheader@docker"
+        #- "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+
+
+networks:
+  default:
+    name: door_default
+    external: true

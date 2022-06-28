@@ -1,5 +1,4 @@
 image_name:=zero:latest
-remote_image_name:=cupen/zero:latest
 
 
 build:
@@ -16,10 +15,14 @@ start:
 
 
 deploy:
-	fab -H vps6 start
+	fab -H vps install start
 
 
-deploy-renew: release
-	fab -H vps6 full-restart
+deploy-renew:
+	fab -H vps install restart 
+
+check:
+	fab -H vps check
+
 
 
