@@ -4,11 +4,11 @@ use actix::ActorContext;
 
 
 
-pub struct PlayerAgent {
+pub struct WorldServer {
     id: String,
 }
 
-impl Actor for PlayerAgent {
+impl Actor for WorldServer {
     fn started(&mut self, _ctx: &mut Self::Context) {
         println!("hello {0}", self.id);
     }

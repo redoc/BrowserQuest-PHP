@@ -3,14 +3,6 @@ use actix_web::{web, Error, HttpRequest, HttpResponse};
 use actix_web_actors::ws;
 use actix::ActorContext; 
 
-
-pub async fn entrance(req: HttpRequest, stream: web::Payload) -> Result<HttpResponse, Error> {
-    let resp = ws::start(PlayerAgent::new(""), &req, stream);
-    // let resp = ws::start(wshandler::PlayerAgent{}, &req, stream);
-    println!("{:?}", resp);
-    return resp;
-}
-
 pub struct PlayerAgent {
     id: String,
 }
@@ -27,7 +19,7 @@ impl StreamHandler<Result<ws::Message, ws::ProtocolError>> for PlayerAgent {
     fn handle(
         &mut self,
         msg: Result<ws::Message, ws::ProtocolError>,
-        ctx: &mut Self::Context,
+        _ctx: &mut Self::Context,
     ) {
         match msg {
             Ok(ws::Message::Ping(msg)) => {
@@ -49,7 +41,6 @@ impl StreamHandler<Result<ws::Message, ws::ProtocolError>> for PlayerAgent {
             _ => {
                 ctx.stop();
             }
-
         }
     }
 }
