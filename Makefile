@@ -14,12 +14,13 @@ start:
 	docker run --rm -it -p 8787:8787 -p 8000:8000 $(image_name)
 
 
-deploy:
+install:
 	fab -H vps install start
 
 
-deploy-renew:
+deploy:
 	fab -H vps install restart 
+
 
 check:
 	fab -H vps check

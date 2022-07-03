@@ -4,33 +4,36 @@ Forked from [walkor/BrowserQuest-PHP](https://github.com/walkor/BrowserQuest-PHP
 ![BrowserQuest with workerman](https://github.com/walkor/BrowserQuest-PHP/blob/master/Web/img/screenshot.jpg?raw=true)
 
 
-## 安装 － Install
+# 开发 - Develop
+## 环境初始化 - Initialize environment 
 +   git clone https://github.com/redoc/zero
 +   composer install 
 
-## 启动停止 - Start and Stop
+## 启动/停止 - Start/Stop
 * 以debug模式启动 `php start.php start`  
 * 以daemon模式启动 `php start.php start -d`
 * 查看状态 `php start.php status`
 * 停止 `php start.php stop`
 
-## 使用 docker
-* 构建本地镜像
+# 部署 - Deployment
+
+* 安装依赖 - Install dependencies
   ```
-  make build
+  pip3 install fabric
+  apt install docker # or blahblah...
   ```
 
-* 发布镜像到 docker hub
+* 构建并发布镜像 - Build/Release container image
   ```
+  make build
   make release
   ```
 
-* 部署/重部署服务
+* 部署之- Deploy it
   ```
-  make deploy
-  make deploy-renew
+  make install # install
+  make deploy  # upgrade
   ```
- 
  
 
 ## 说明 - Description
